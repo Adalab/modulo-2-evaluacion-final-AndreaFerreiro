@@ -1,0 +1,24 @@
+.section-search{
+    width: 80%;
+    background-color: white;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    box-shadow: 0 0 10px #444444;
+    position: absolute;
+    transform: translateY(-37px);
+}
+.searchForm{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 0px 100px;
+    &__label{
+        width: 100%;
+        &--input{
+            width: 90%;
+        }
+    }
+}

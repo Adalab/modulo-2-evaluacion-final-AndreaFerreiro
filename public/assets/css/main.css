@@ -1,0 +1,197 @@
+:root {
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif; }
+
+* {
+  box-sizing: border-box; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.hero {
+  height: 250px;
+  background-image: url(../images/Disney.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom; }
+
+.section-search {
+  width: 80%;
+  background-color: white;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  box-shadow: 0 0 10px #444444;
+  position: absolute;
+  transform: translateY(-37px); }
+
+.searchForm {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 0px 100px; }
+  .searchForm__label {
+    width: 100%; }
+    .searchForm__label--input {
+      width: 90%; }
+
+.section-fav {
+  margin-top: 40px;
+  padding: 30px 60px; }
+
+.section-list {
+  min-height: 80vh; }
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px 40px; }
+  .list__element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 10px #444444;
+    padding-bottom: 30px; }
+    .list__element--img {
+      height: 300px; }
+
+.footer {
+  padding: 10px 0px;
+  text-align: center;
+  background-color: #20a9e4;
+  color: white; }
+
+.main__list {
+  padding-left: 2rem;
+  padding-bottom: 20px; }
+
+/*# sourceMappingURL=main.css.map */
