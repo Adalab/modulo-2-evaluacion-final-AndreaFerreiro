@@ -18,7 +18,7 @@ function renderCharacters(charactersList){
     li.appendChild(img);
     li.appendChild(paragraph);
     list.appendChild(li);*/
-    list.innerHTML = `
+    list.innerHTML += `
     <li class="list__element">
         <img class="list__element--img" src="${charactersList[i].imageURL}"/>
         <p class="list__element--name">${charactersList[i].name}</p>
