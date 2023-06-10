@@ -27,9 +27,11 @@
         box-shadow: 0 0 10px #444444;
         padding-bottom: 30px;
         width: 250px;
+        gap: 10px;
         &--img{
             height: 300px;
-            object-fit:scale-down;
+            object-fit:cover;
+            width: 100%;
         }
         &--name{
             font-size: 15px;

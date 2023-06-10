@@ -149,8 +149,7 @@ table {
   justify-content: center;
   height: 70px;
   box-shadow: 0 0 10px #444444;
-  position: absolute;
-  transform: translateY(-37px); }
+  position: absolute; }
 
 .searchForm {
   display: flex;
@@ -194,11 +193,13 @@ table {
     text-align: center;
     box-shadow: 0 0 10px #444444;
     padding-bottom: 30px;
-    width: 250px; }
+    width: 250px;
+    gap: 10px; }
     .list__element--img {
       height: 300px;
-      -o-object-fit: scale-down;
-      object-fit: scale-down; }
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%; }
     .list__element--name {
       font-size: 15px;
       font-weight: bold;

@@ -1,7 +1,7 @@
 let charactersFav = [];
 //const character =document.querySelector('.element');
 function handlCharacterClick(event){
-    const id = event.currentTarget.id;
+    const id = `${charactersList._id}`;
     console.log(id);
 }
 addEventClick();
