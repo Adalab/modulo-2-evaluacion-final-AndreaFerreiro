@@ -13,11 +13,15 @@ function renderCharacters(charactersList){
     li.classList.add('list__element');
     paragraph.classList.add('list__element--name');
     paragraph.appendChild(newContentP);
+    li.id = `${charactersList._id}`;
     li.appendChild(img);
     li.appendChild(paragraph);
+    li.classList.add('element');
     list.appendChild(li);
+    if (charactersList.imageUrl=''){
+        charactersList.imageUrl= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+    }
 }
-
 function renderCharactersList(){
     for (let i = 0; i < charactersList.length; i++) {
         renderCharacters(charactersList[i]);
@@ -28,23 +32,23 @@ init();
 function init (){
     if(charactersLS){
         charactersList = charactersLS;
-        //renderCharactersList(charactersList);
+        renderCharactersList(charactersList);
     } else{
         fetch (url)
         .then ((response) => response.json())
         .then ((data) => {
-            console.log(data);
-            charactersList = data;
+            charactersList = data.data;
+            console.log(data.data);
             renderCharactersList(charactersList);
-            localStorage.setItem ('characters', JSON.stringify(charactersList));
-        })
+            //localStorage.setItem ('characters', JSON.stringify(charactersList));
+        });
     }
 }*/
 fetch (url)
-.then ((response) => response.json())
-.then ((data) => {
-    charactersList = data.data;
-    console.log(data.data);
-    renderCharactersList(charactersList);
-    //localStorage.setItem ('characters', JSON.stringify(charactersList));
+    .then ((response) => response.json())
+    .then ((data) => {
+        charactersList = data.data;
+        console.log(data.data);
+        renderCharactersList(charactersList);
+        //localStorage.setItem ('characters', JSON.stringify(charactersList));
 });
