@@ -1,11 +1,24 @@
 .section-list{
     min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.title{
+    font-size: 15px;
+    color: rgb(24, 93, 203);
+    font-weight: bold
 }
 .list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0px 40px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
     &__element{
         display: flex;
         flex-direction: column;
@@ -13,8 +26,15 @@
         text-align: center;
         box-shadow: 0 0 10px #444444;
         padding-bottom: 30px;
+        width: 250px;
         &--img{
             height: 300px;
+            object-fit:scale-down;
+        }
+        &--name{
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
         }
     }
 }
