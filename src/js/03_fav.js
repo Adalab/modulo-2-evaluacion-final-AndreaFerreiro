@@ -1,7 +1,19 @@
 const favList = document.querySelector('.js_fav')
 let charactersFav = [];
+const sectionFav = document.querySelector('.section-fav');
+const sectionList = document.querySelector('.section-list');
 const charactersLS = JSON.parse(localStorage.getItem('characters'));
+const resetListButtom = document.querySelector('.js_resetList');
 init();
+function showFavList(){
+    if(charactersFav.length === 0){
+        sectionFav.classList.add('collapsed');
+        sectionList.classList.add('margin-top');
+    }else{
+        sectionFav.classList.remove('collapsed');
+        sectionList.classList.remove('margin-top');
+    }
+}
 function renderFavCharacter(eachCharacter){
     let valueImg = eachCharacter.imageUrl;
     const valueId= eachCharacter._id;
@@ -15,7 +27,7 @@ function renderFavCharacter(eachCharacter){
     const paragraph = document.createElement('p');
     const li = document.createElement('li');
     const img = document.createElement('img');
-    const trash = document.createElement('p');
+    const trash = document.createElement('buttom');
     img.classList.add('list__element--img');
     img.src = valueImg;
     li.classList.add('fav__element');
@@ -23,6 +35,7 @@ function renderFavCharacter(eachCharacter){
     paragraph.appendChild(newContentP);
     trash.classList.add('reset');
     trash.classList.add('js_reset');
+    trash.title='Eliminar de la lista';
     trash.appendChild(reset);
     li.id = valueId;
     trash.id = valueId;
@@ -38,6 +51,7 @@ function renderFavCharacterList(){
         renderFavCharacter(charactersFav[i]);
     }
     eventReset();
+    showFavList();
 }
 function handleClick(event){
     const id = parseInt(event.currentTarget.id);
@@ -79,3 +93,10 @@ function eventReset (){
         resetButtoms[i].addEventListener('click', handleReset);
     }
 }
+function resetListFav(event){
+    charactersFav= [];
+    console.log(charactersFav);
+    localStorage.setItem('characters', JSON.stringify(charactersFav));
+    renderFavCharacterList();
+}
+resetListButtom.addEventListener('click', resetListFav);

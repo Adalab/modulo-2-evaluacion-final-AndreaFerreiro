@@ -24,6 +24,18 @@
     background-color:darksalmon;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.resetListButtom{
+    box-shadow: #444444;
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+}
+.resetListButtom:hover{
+    background-color: dimgray;
+    color: white;
+}
 .reset{
     font-size: 16px;
     margin-top: 10px;
