@@ -1,5 +1,7 @@
 const favList = document.querySelector('.js_fav')
 let charactersFav = [];
+const charactersLS = JSON.parse(localStorage.getItem('characters'));
+init();
 function renderFavCharacter(eachCharacter){
     let valueImg = eachCharacter.imageUrl;
     const valueId= eachCharacter._id;
@@ -8,14 +10,13 @@ function renderFavCharacter(eachCharacter){
     if (!valueImg){
         valueImg = disneyImg;
     }
-    favList.innerHTML='';
     const newContentP = document.createTextNode(valueName);
     const paragraph = document.createElement('p');
     const li = document.createElement('li');
     const img = document.createElement('img');
     img.classList.add('list__element--img');
     img.src = valueImg;
-    li.classList.add('list__element');
+    li.classList.add('fav__element');
     paragraph.classList.add('list__element--name');
     paragraph.appendChild(newContentP);
     li.id = valueId;
@@ -25,6 +26,7 @@ function renderFavCharacter(eachCharacter){
     favList.appendChild(li);
 }
 function renderFavCharacterList(){
+    favList.innerHTML='';
     for (let i=0; i<charactersFav.length; i++){
         renderFavCharacter(charactersFav[i]);
     }
@@ -38,12 +40,19 @@ function handleClick(event){
     } else {
         charactersFav.splice(indexCharacter,1);
     }
+    localStorage.setItem('characters', JSON.stringify(charactersFav));
     console.log(charactersFav);
-    renderFavCharacterList(charactersFav);
+    renderFavCharacterList();
 }
 function eventClick (){
     const characters = document.querySelectorAll('.element');
     for( let i=0; i<characters.length; i++){
         characters[i].addEventListener('click', handleClick);
+    }
+}
+function init (){
+    if(charactersLS){
+        charactersFav = charactersLS;
+        renderFavCharacterList(charactersFav);
     }
 }

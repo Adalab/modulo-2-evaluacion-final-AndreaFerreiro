@@ -1,8 +1,6 @@
 let charactersList = [];
 const url = `https://api.disneyapi.dev/character?pageSize=50`;
-const charactersLS = localStorage.getItem('characters');
 const list = document.querySelector('.list');
-
 function renderCharacters(charactersList){
     if (charactersList.imageUrl === ''){
         charactersList.imageUrl= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
@@ -28,28 +26,10 @@ function renderCharactersList(charactersList){
     }
     eventClick();
 }
-/*
-init();
-function init (){
-    if(charactersLS){
-        charactersList = charactersLS;
-        renderCharactersList(charactersList);
-    } else{
-        fetch (url)
-        .then ((response) => response.json())
-        .then ((data) => {
-            charactersList = data.data;
-            console.log(data.data);
-            renderCharactersList(charactersList);
-            //localStorage.setItem ('characters', JSON.stringify(charactersList));
-        });
-    }
-}*/
 fetch (url)
     .then ((response) => response.json())
     .then ((data) => {
         charactersList = data.data;
         console.log(data.data);
         renderCharactersList(charactersList);
-        //localStorage.setItem ('characters', JSON.stringify(charactersList));
 });

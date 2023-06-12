@@ -1,9 +1,7 @@
 
 let charactersList = [];
 const url = `https://api.disneyapi.dev/character?pageSize=50`;
-const charactersLS = localStorage.getItem('characters');
 const list = document.querySelector('.list');
-
 function renderCharacters(charactersList){
     if (charactersList.imageUrl === ''){
         charactersList.imageUrl= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
@@ -29,34 +27,18 @@ function renderCharactersList(charactersList){
     }
     eventClick();
 }
-/*
-init();
-function init (){
-    if(charactersLS){
-        charactersList = charactersLS;
-        renderCharactersList(charactersList);
-    } else{
-        fetch (url)
-        .then ((response) => response.json())
-        .then ((data) => {
-            charactersList = data.data;
-            console.log(data.data);
-            renderCharactersList(charactersList);
-            //localStorage.setItem ('characters', JSON.stringify(charactersList));
-        });
-    }
-}*/
 fetch (url)
     .then ((response) => response.json())
     .then ((data) => {
         charactersList = data.data;
         console.log(data.data);
         renderCharactersList(charactersList);
-        //localStorage.setItem ('characters', JSON.stringify(charactersList));
 });
 
 const favList = document.querySelector('.js_fav')
 let charactersFav = [];
+const charactersLS = JSON.parse(localStorage.getItem('characters'));
+init();
 function renderFavCharacter(eachCharacter){
     let valueImg = eachCharacter.imageUrl;
     const valueId= eachCharacter._id;
@@ -65,14 +47,13 @@ function renderFavCharacter(eachCharacter){
     if (!valueImg){
         valueImg = disneyImg;
     }
-    favList.innerHTML='';
     const newContentP = document.createTextNode(valueName);
     const paragraph = document.createElement('p');
     const li = document.createElement('li');
     const img = document.createElement('img');
     img.classList.add('list__element--img');
     img.src = valueImg;
-    li.classList.add('list__element');
+    li.classList.add('fav__element');
     paragraph.classList.add('list__element--name');
     paragraph.appendChild(newContentP);
     li.id = valueId;
@@ -82,6 +63,7 @@ function renderFavCharacter(eachCharacter){
     favList.appendChild(li);
 }
 function renderFavCharacterList(){
+    favList.innerHTML='';
     for (let i=0; i<charactersFav.length; i++){
         renderFavCharacter(charactersFav[i]);
     }
@@ -95,13 +77,20 @@ function handleClick(event){
     } else {
         charactersFav.splice(indexCharacter,1);
     }
+    localStorage.setItem('characters', JSON.stringify(charactersFav));
     console.log(charactersFav);
-    renderFavCharacterList(charactersFav);
+    renderFavCharacterList();
 }
 function eventClick (){
     const characters = document.querySelectorAll('.element');
     for( let i=0; i<characters.length; i++){
         characters[i].addEventListener('click', handleClick);
+    }
+}
+function init (){
+    if(charactersLS){
+        charactersFav = charactersLS;
+        renderFavCharacterList(charactersFav);
     }
 }
 const buttomSearch = document.querySelector('.js_submit');
