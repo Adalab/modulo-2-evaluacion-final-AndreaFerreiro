@@ -5,6 +5,7 @@ const sectionList = document.querySelector('.section-list');
 const charactersLS = JSON.parse(localStorage.getItem('characters'));
 const resetListButtom = document.querySelector('.js_resetList');
 init();
+showFavList()
 function showFavList(){
     if(charactersFav.length === 0){
         sectionFav.classList.add('collapsed');
