@@ -1,24 +1,32 @@
 .section-search{
-    width: 80%;
+    width: 100%;
     background-color: white;
-    border: 1px solid grey;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 70px;
-    box-shadow: 0 0 10px #444444;
     position: absolute;
-    //transform: translateY(-37px);
 }
 .searchForm{
+    background-color: white;
     display: flex;
+    box-shadow: 0 0 10px #444444;
     gap: 10px;
-    width: 100%;
-    padding: 0px 100px;
+    width: 80%;
+    padding: 30px 100px;
+    position: absolute;
+    transform: translateY(-37px);
+    opacity: 100%;
     &__label{
         width: 100%;
         &--input{
             width: 90%;
         }
+    }
+    &__submit{
+        background-color: rgb(23, 122, 221);
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
     }
 }

@@ -4,6 +4,9 @@ const charactersLS = localStorage.getItem('characters');
 const list = document.querySelector('.list');
 
 function renderCharacters(charactersList){
+    if (charactersList.imageUrl === ''){
+        charactersList.imageUrl= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+    }
     const newContentP = document.createTextNode(`${charactersList.name}`);
     const paragraph = document.createElement('p');
     const li = document.createElement('li');
@@ -18,14 +21,12 @@ function renderCharacters(charactersList){
     li.appendChild(paragraph);
     li.classList.add('element');
     list.appendChild(li);
-    if (charactersList.imageUrl=''){
-        charactersList.imageUrl= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
-    }
 }
-function renderCharactersList(){
+function renderCharactersList(charactersList){
     for (let i = 0; i < charactersList.length; i++) {
         renderCharacters(charactersList[i]);
     }
+    eventClick();
 }
 /*
 init();
