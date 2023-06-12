@@ -55,7 +55,6 @@ function renderFavCharacterList(){
 }
 function handleClick(event){
     const id = parseInt(event.currentTarget.id);
-    console.log(id);
     const clickedCharacter = charactersList.find((item) => item._id === id);
     const indexCharacter = charactersFav.findIndex((item) => item._id === id);
     if (indexCharacter === -1) {
@@ -64,7 +63,6 @@ function handleClick(event){
         charactersFav.splice(indexCharacter,1);
     }
     localStorage.setItem('characters', JSON.stringify(charactersFav));
-    console.log(charactersFav);
     renderFavCharacterList();
 }
 function eventClick (){
@@ -95,7 +93,6 @@ function eventReset (){
 }
 function resetListFav(event){
     charactersFav= [];
-    console.log(charactersFav);
     localStorage.setItem('characters', JSON.stringify(charactersFav));
     renderFavCharacterList();
 }
