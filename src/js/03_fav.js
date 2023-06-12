@@ -11,17 +11,24 @@ function renderFavCharacter(eachCharacter){
         valueImg = disneyImg;
     }
     const newContentP = document.createTextNode(valueName);
+    const reset = document.createTextNode('X');
     const paragraph = document.createElement('p');
     const li = document.createElement('li');
     const img = document.createElement('img');
+    const trash = document.createElement('p');
     img.classList.add('list__element--img');
     img.src = valueImg;
     li.classList.add('fav__element');
     paragraph.classList.add('list__element--name');
     paragraph.appendChild(newContentP);
+    trash.classList.add('reset');
+    trash.classList.add('js_reset');
+    trash.appendChild(reset);
     li.id = valueId;
+    trash.id = valueId;
     li.appendChild(img);
     li.appendChild(paragraph);
+    li.appendChild(trash);
     li.classList.add('element');
     favList.appendChild(li);
 }
@@ -30,9 +37,11 @@ function renderFavCharacterList(){
     for (let i=0; i<charactersFav.length; i++){
         renderFavCharacter(charactersFav[i]);
     }
+    eventReset();
 }
 function handleClick(event){
     const id = parseInt(event.currentTarget.id);
+    console.log(id);
     const clickedCharacter = charactersList.find((item) => item._id === id);
     const indexCharacter = charactersFav.findIndex((item) => item._id === id);
     if (indexCharacter === -1) {
@@ -54,5 +63,19 @@ function init (){
     if(charactersLS){
         charactersFav = charactersLS;
         renderFavCharacterList(charactersFav);
+    }
+}
+function handleReset(event){
+    const id = parseInt(event.currentTarget.id);
+    const clickedCharacter = charactersFav.find((item) => item._id === id);
+    const indexCharacter = charactersFav.findIndex((item) => item._id === id);
+    charactersFav.splice(indexCharacter,1);
+    localStorage.setItem('characters', JSON.stringify(charactersFav));
+    renderFavCharacterList();
+}
+function eventReset (){
+    const resetButtoms = document.querySelectorAll('.js_reset');
+    for( let i=0; i<resetButtoms.length; i++){
+        resetButtoms[i].addEventListener('click', handleReset);
     }
 }

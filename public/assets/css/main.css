@@ -196,6 +196,13 @@ table {
   background-color: darksalmon;
   font-family: Georgia, 'Times New Roman', Times, serif; }
 
+.reset {
+  font-size: 16px;
+  margin-top: 10px; }
+
+.reset:hover {
+  color: red; }
+
 .collapsed {
   display: none; }
 
