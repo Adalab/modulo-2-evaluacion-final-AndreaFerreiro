@@ -46,10 +46,10 @@ showFavList()
 function showFavList(){
     if(charactersFav.length === 0){
         sectionFav.classList.add('collapsed');
-        sectionList.classList.add('margin-top');
+        //sectionList.classList.add('margin-top');
     }else{
         sectionFav.classList.remove('collapsed');
-        sectionList.classList.remove('margin-top');
+        //sectionList.classList.remove('margin-top');
     }
 }
 function renderFavCharacter(eachCharacter){

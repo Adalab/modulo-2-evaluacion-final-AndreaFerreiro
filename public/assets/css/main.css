@@ -170,12 +170,19 @@ table {
     border: none;
     border-radius: 5px; }
 
+.section-lists {
+  display: flex;
+  flex-direction: row;
+  gap: 50px; }
+
 .section-fav {
-  margin-top: 40px;
-  padding: 30px 60px;
+  margin-top: 70px;
+  padding-left: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  gap: 5px;
+  max-width: 300px; }
 
 .favourites-list {
   display: flex;
@@ -200,6 +207,7 @@ table {
   box-shadow: #444444;
   border: none;
   padding: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-family: 'Times New Roman', Times, serif;
   border-radius: 5px; }
