@@ -22,21 +22,10 @@ function renderFavSearch(eachFav){
     li.appendChild(paragraph);
     li.classList.add('element');
     list.appendChild(li);
+    eventClick();
 }
 function handleSearchButtom(event){
     event.preventDefault();
-    const search = inputSearch.value;
-    const filterList = charactersList.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
-    for (let i =0; i<filterList.length; i++){
-        const searchId = filterList[i]._id;
-        const indexSearch = charactersFav.findIndex((item) => item._id === searchId);
-        if (indexSearch === -1){
-            list.innerHTML='';
-            renderCharactersList(filterList[i]);
-        } else{
-            list.innerHTML='';
-            renderFavSearch(filterList[i]);
-        }
-    }
+    renderCharactersList();
 }
 buttomSearch.addEventListener('click', handleSearchButtom);

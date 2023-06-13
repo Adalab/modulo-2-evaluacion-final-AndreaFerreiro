@@ -9,10 +9,8 @@ showFavList()
 function showFavList(){
     if(charactersFav.length === 0){
         sectionFav.classList.add('collapsed');
-        //sectionList.classList.add('margin-top');
     }else{
         sectionFav.classList.remove('collapsed');
-        //sectionList.classList.remove('margin-top');
     }
 }
 function renderFavCharacter(eachCharacter){
@@ -65,12 +63,14 @@ function handleClick(event){
     }
     localStorage.setItem('characters', JSON.stringify(charactersFav));
     renderFavCharacterList();
+    renderCharactersList();
 }
 function eventClick (){
-    const characters = document.querySelectorAll('.element');
+    const characters = document.querySelectorAll('.list .element');
     for( let i=0; i<characters.length; i++){
         characters[i].addEventListener('click', handleClick);
     }
+    renderFavCharacterList();
 }
 function init (){
     if(charactersLS){
@@ -85,6 +85,7 @@ function handleReset(event){
     charactersFav.splice(indexCharacter,1);
     localStorage.setItem('characters', JSON.stringify(charactersFav));
     renderFavCharacterList();
+    renderCharactersList();
 }
 function eventReset (){
     const resetButtoms = document.querySelectorAll('.js_reset');
@@ -96,5 +97,6 @@ function resetListFav(event){
     charactersFav= [];
     localStorage.setItem('characters', JSON.stringify(charactersFav));
     renderFavCharacterList();
+    renderCharactersList();
 }
 resetListButtom.addEventListener('click', resetListFav);
