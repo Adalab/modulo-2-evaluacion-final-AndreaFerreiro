@@ -1,5 +1,6 @@
 const buttomSearch = document.querySelector('.js_submit');
 const inputSearch = document.querySelector('.js_inputSearch');
+const LOG = document.querySelector('.js_log');
 function renderFavSearch(eachFav){
     let valueImg = eachFav.imageUrl;
     const valueId= eachFav._id;
@@ -28,4 +29,11 @@ function handleSearchButtom(event){
     event.preventDefault();
     renderCharactersList();
 }
+function handleLOG (event){
+    event.preventDefault();
+    for (let i=0; i<charactersFav.length; i++){
+        console.log(charactersFav[i].name);
+    }
+}
 buttomSearch.addEventListener('click', handleSearchButtom);
+LOG.addEventListener('click', handleLOG);
